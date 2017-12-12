@@ -17,6 +17,8 @@ Gifx::Initialize(Nan::ADDON_REGISTER_FUNCTION_ARGS_TYPE target) {
   ctor->SetClassName(Nan::New("Gifx").ToLocalChecked());
 
   Nan::SetPrototypeMethod(ctor, "hello", Hello);
+
+  Nan::Set(target, Nan::New("Gifx").ToLocalChecked(), ctor->GetFunction());
 }
 
 NAN_METHOD(Gifx::New) {

@@ -14,7 +14,7 @@
     "url": "git://github.com/kaelzhang/node-gifx.git"
   },
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 4"
   },
   "dependencies": {
     "nan": "^2.8.0"

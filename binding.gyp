@@ -3,7 +3,8 @@
     {
       'target_name': 'gifx',
       'sources': [
-        'cc/Gifx.cc'
+        'cc/Gifx.cc',
+        'cc/bindings.cc'
       ],
       'include_dirs': [
         '<!(node -e "require(\'nan\')")'

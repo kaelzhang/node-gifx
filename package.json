@@ -3,7 +3,7 @@
   "version": "0.1.1",
   "module": "src/index.js",
   "main": "lib/index.js",
-  "description": "A native node.js bindings to the giflib, and provides useful APIs.",
+  "description": "A native node.js bindings to the giflib.",
   "keywords": [
     "gifx"
   ],

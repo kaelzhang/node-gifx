@@ -1,7 +1,9 @@
 # Gifx
 
-Originally a fork of [`gif`](https://www.npmjs.com/package/gif).
+A native node.js bindings to the giflib.
 
-NOW WIP
+# install
 
-----
+```sh
+$ npm i gifx
+```

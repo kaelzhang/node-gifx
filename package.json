@@ -1,0 +1,52 @@
+{
+  "name": "gifx",
+  "version": "0.1.1",
+  "module": "src/index.js",
+  "main": "lib/index.js",
+  "description": "A native node.js bindings to the giflib, and provides useful APIs.",
+  "keywords": [
+    "gifx"
+  ],
+  "author": "kael",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/kaelzhang/node-gifx.git"
+  },
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "dependencies": {
+    "nan": "^2.8.0"
+  },
+  "devDependencies": {
+    "ava": "^0.16.0",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
+    "babel-register": "^6.26.0",
+    "codecov": "^2.3.0",
+    "nyc": "^11.1.0",
+    "rollup": "^0.49.3",
+    "rollup-plugin-commonjs": "^8.2.6",
+    "rollup-plugin-node-resolve": "^3.0.0"
+  },
+  "ava": {
+    "require": "babel-register",
+    "babel": {
+      "babelrc": true
+    },
+    "files": [
+      "test/*.js"
+    ]
+  },
+  "scripts": {
+    "build-cc": "node-gyp build",
+    "build-js": "BABEL_ENV=rollup rollup -c",
+    "// build": "npm run build-cc && npm run build-js",
+    "test": "npm run build-cc && npm run test-js",
+    "test-js": "BABEL_ENV=ava nyc ava --verbose --timeout=10s",
+    "test-no-cov": "BABEL_ENV=ava ava --verbose --timeout=10s",
+    "// prepublish": "npm run build",
+    "report-cov": "nyc report --reporter=text-lcov > coverage.lcov && codecov"
+  }
+}

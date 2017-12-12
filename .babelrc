@@ -1,0 +1,19 @@
+{
+  "parserOpts": {
+    // Allow returns in the module
+    "allowReturnOutsideFunction": true
+  },
+
+  "env": {
+    "ava": {
+      "sourceMaps": "inline",
+      "plugins": [
+        "transform-es2015-modules-commonjs"
+      ]
+    },
+
+    "rollup": {
+      "plugins": []
+    }
+  }
+}

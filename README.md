@@ -31,15 +31,12 @@ new Gifx(300, 200)
                         // The index of a frame begins with 0.
 
   .duration(2)          // The duration is 1 second
-
   .add(catBuffer)       // Adds a cat
-
   .leave()              // Returns to the stage
 .layer()
-  .start(2)             // Starts from the dog frame
-
-  .end(4)               // Ends at (and INCLUDES) the frame of index 4 (the     
-                        // fifth frame)
+  .start(2)
+  .end(5)               // Ends before (and NOT INCLUDES) the frame of
+                        // index 5 (the fifth frame)
                         // which has the same effect with `.duration(3)`
 
   .add(dogBuffer, {     // Adds a dog with a x-axis offset of 150
@@ -48,7 +45,6 @@ new Gifx(300, 200)
   })
   .leave()
 .repeat(0)              // Repeat infinitely
-
 .stream()               // Creates a readable stream and write to file.
 .pipe(fs.createWriteStream('cat-and-dog.gif'))
 ```

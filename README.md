@@ -20,39 +20,37 @@ const dogBuffer = fs.readFileSync(filepathDog)
 
 // Creates a new 300x200(square pixels) stage
 new Gifx(300, 200)
-// Sets the background color to '#ffffff' (default to transparent)
-.background('#ffffff')
-// Sets the unit time to 500 ms, i.e. each frame will last 500 ms
-.unit(500)
-.layer()
-  // Starts from the first frame.
-  // The index of a frame begins with 0.
-  .start(0)
-  // The duration is 1 second
-  .duration(2)
-  // Adds a cat
-  .add(catBuffer)
-  // Returns to the stage
-  .leave()
 
-// You could babel the layer with a name
+.background('#ffffff')  // Sets the background color to '#ffffff',
+                        // default to transparent)
+
+.unit(500)              // Sets the unit time to 500 ms,
+                        // i.e. each frame will last 500 ms
+.layer()                      
+  .start(0)             // Starts from the first frame.
+                        // The index of a frame begins with 0.
+
+  .duration(2)          // The duration is 1 second
+
+  .add(catBuffer)       // Adds a cat
+
+  .leave()              // Returns to the stage
 .layer()
-  // Starts from the dog frame
-  .start(2)
-  // Ends at (and INCLUDES) the frame of index 4 (the fifth frame)
-  // which has the same effect with `.duration(3)`
-  .end(4)
-  // Adds a dog with a x-axis offset of 150
-  .add(dogBuffer, {
+  .start(2)             // Starts from the dog frame
+
+  .end(4)               // Ends at (and INCLUDES) the frame of index 4 (the     
+                        // fifth frame)
+                        // which has the same effect with `.duration(3)`
+
+  .add(dogBuffer, {     // Adds a dog with a x-axis offset of 150
     x: 150,
     y: 0
   })
   .leave()
+.repeat(0)              // Repeat infinitely
 
-// Repeat infinitely
-.repeat(0)
-// Creates a readable stream and write to file.
-.stream().pipe(fs.createWriteStream('cat-and-dog.gif'))
+.stream()               // Creates a readable stream and write to file.
+.pipe(fs.createWriteStream('cat-and-dog.gif'))
 ```
 
 # new Gifx(width, height)
